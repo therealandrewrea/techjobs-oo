@@ -16,8 +16,7 @@ import java.util.ArrayList;
 public class JobForm {
 
     // linked to new-job.html //
-    @NotNull
-    @Size(min=1, message = "Name may not be empty")
+    @Size(min=1, message = "Name may not be blank.")
     private String name;
 
     @NotNull
@@ -33,7 +32,7 @@ public class JobForm {
     private int positionTypeId;
 
     /*
-        TODO #3 - Included other fields needed to create a job, - complete - getters and setters below
+        #3 Complete - Included other fields needed to create a job, - complete - getters and setters below
         with correct validation attributes and display names.
         Don't forget to add getters and setters
      */
@@ -49,7 +48,7 @@ public class JobForm {
         JobData jobData = JobData.getInstance();
 
         /*
-            TODO #4 - populate the other ArrayList collections needed in the view - complete!
+            #4 Complete - populate the other ArrayList collections needed in the view - complete!
         */
 
         employers = jobData.getEmployers().findAll();

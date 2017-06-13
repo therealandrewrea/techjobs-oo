@@ -28,10 +28,9 @@ public class JobController {
 
         Job jobPull = jobData.findById(id);
         model.addAttribute("jobPull", jobPull);
-        model.addAttribute("title", title);
 
-        // TODO #1 - get the Job with the given ID and pass it into the view
-        // classic MVC clarity issue - review prepwork on templates/queries
+        // TODO #1 STILL NEED - get the Job with the given ID and pass it into the view
+        // job-detail.html displaying properly, still unclear as to where this is accessed - redirect from new job creation or direct URL entry
 
         return "job-detail";
     }
@@ -45,7 +44,21 @@ public class JobController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String add(Model model, @Valid JobForm jobForm, Errors errors) {
 
-        // TODO #6 - DO LAST - Validate the JobForm model, and if valid, create a
+        //error message not appearing on reload of new-job template//
+        if (errors.hasErrors()) {
+            model.addAttribute(new JobForm());
+            return "new-job";
+        }
+        // TODO #7- ask about todo 6, how to use jobform to create a new job and add to jobData, then redirect to job-detail with the ID //
+//        model.addAttribute("name", name);
+//        model.addAttribute("employer", employer.value);
+//        model.addAttribute("location", location.value);
+//        model.addAttribute("coreCompetency", coreCompetency.value);
+//        model.addAttribute("positionType", positionType.value);
+
+        Job newJob = new Job();
+        jobData.add(newJob);
+        // TODO #6 - STILL NEED - Validate the JobForm model, and if valid, create a
         // new Job and add it to the jobData data store. Then
         // redirect to the job detail view for the new Job.
         // annotations - in prep work - annotate individual fields in models
@@ -53,7 +66,7 @@ public class JobController {
         // re-render form and provide error message as needed
         // build in a place for error messages to be displayed - prep work - span tags
 
-        return "";
+        return "job-detail";
 
     }
 }

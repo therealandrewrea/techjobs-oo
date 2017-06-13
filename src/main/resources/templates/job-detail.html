@@ -8,10 +8,32 @@
 
 <div class="container body-content">
 
-    <!-- // TODO #2 - display the job fields, one per row, pass in from job controller via model-->
-
-
+    <!-- //#2 - display the job fields, one per row, pass in from job controller via model - complete-->
+    <!-- should be able to do with a th:each loop though -->
+        <table class="job-listing">
+            <tbody>
+            <tr>
+                <th>Name</th>
+                <td th:text="${jobPull.name}"></td>
+            </tr>
+            <tr>
+                <th>Employer</th>
+                <td th:text="${jobPull.employer}"></td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td th:text="${jobPull.location}"></td>
+            </tr>
+            <tr>
+                <th>Position Type</th>
+                <td th:text="${jobPull.positionType}"></td>
+            </tr>
+            <tr>
+                <th>Core Competency</th>
+                <td th:text="${jobPull.coreCompetency}"></td>
+            </tr>
+            </tbody>
+        </table>
 </div>
-
 </body>
 </html>
