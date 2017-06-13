@@ -25,7 +25,36 @@
             </select>
         </div>
 
-        <!-- TODO #5 - Create <select> dropdowns for other job fields -->
+        <div class="form-group">
+            <label th:for="locationId">Location</label>
+            <select th:field="*{locationId}">
+                <option th:each="location : *{locations}"
+                        th:value="${location.id}"
+                        th:text="${location.value}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label th:for="coreCompetenciesId">Location</label>
+            <select th:field="*{coreCompetenciesId}">
+                <option th:each="coreCompetency : *{coreCompetencies}" /> <!-- double check mapping here plurals -->
+                        th:value="${coreCompetency.id}"
+                        th:text="${coreCompetency.value}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label th:for="positionTypesId">Location</label>
+            <select th:field="*{positionTypesId}">
+                <option th:each="positionType : *{positionTypes}" <!-- double check mapping here plurals -->
+                        th:value="${positionType.id}"
+                        th:text="${positionType.value}"></option>
+            </select>
+        </div>
+
+
+        <!-- TODO #5 - Create <select> dropdowns for other job fields - reference prep work vids for an example -->
+        <!-- see code above, need to find a way to test -->
 
         <input type="submit" value="Add Job" />
     </form>

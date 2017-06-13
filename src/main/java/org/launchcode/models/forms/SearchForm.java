@@ -2,6 +2,8 @@ package org.launchcode.models.forms;
 
 import org.launchcode.models.JobFieldType;
 
+
+// templates are bound to these helpers //
 /**
  * Created by LaunchCode
  */

@@ -15,6 +15,7 @@ import java.util.ArrayList;
  */
 public class JobForm {
 
+    // linked to new-job.html //
     @NotNull
     @Size(min=1, message = "Name may not be empty")
     private String name;
@@ -22,12 +23,22 @@ public class JobForm {
     @NotNull
     private int employerId;
 
+    @NotNull
+    private int locationId;
+
+    @NotNull
+    private int coreCompetenciesId;
+
+    @NotNull
+    private int positionTypesId;
+
     /*
-        TODO #3 - Included other fields needed to create a job,
+        TODO #3 - Included other fields needed to create a job, - complete - getters and setters below
         with correct validation attributes and display names.
         Don't forget to add getters and setters
      */
 
+    // existing code //
     private ArrayList<Employer> employers;
     private ArrayList<Location> locations;
     private ArrayList<CoreCompetency> coreCompetencies;
@@ -38,10 +49,13 @@ public class JobForm {
         JobData jobData = JobData.getInstance();
 
         /*
-            TODO #4 - populate the other ArrayList collections needed in the view
+            TODO #4 - populate the other ArrayList collections needed in the view - complete!
         */
 
         employers = jobData.getEmployers().findAll();
+        locations = jobData.getLocations().findAll();
+        coreCompetencies = jobData.getCoreCompetencies().findAll();
+        positionTypes = jobData.getPositionTypes().findAll();
 
     }
 
@@ -92,4 +106,32 @@ public class JobForm {
     public void setPositionTypes(ArrayList<PositionType> positionTypes) {
         this.positionTypes = positionTypes;
     }
+
+    // added new getters and setters below //
+
+    public int getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(int locationId) {
+        this.locationId = locationId;
+    }
+
+    public int getCoreCompetenciesId() {
+        return coreCompetenciesId;
+    }
+
+    public void setCoreCompetenciesId(int coreCompetenciesId) {
+        this.coreCompetenciesId = coreCompetenciesId;
+    }
+
+    public int getPositionTypesId() {
+        return positionTypesId;
+    }
+
+    public void setPositionTypesId(int positionTypesId) {
+        this.positionTypesId = positionTypesId;
+    }
 }
+
+
