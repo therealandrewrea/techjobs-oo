@@ -14,7 +14,6 @@
         <h2>Search by:</h2>
 
         <ul class="form-group">
-            <!-- "pre" field listing on page when loaded - bootstrap issue? -->
             <li th:each="field : *{fields}">
                 <input type="radio" th:field="*{searchField}" th:value="${field}" th:checked="${field == searchField}"/>
                 <label th:for="${#ids.prev('searchField')}" th:text="${field.name}"></label>

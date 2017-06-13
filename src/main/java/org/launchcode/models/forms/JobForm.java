@@ -27,10 +27,10 @@ public class JobForm {
     private int locationId;
 
     @NotNull
-    private int coreCompetenciesId;
+    private int coreCompetencyId;
 
     @NotNull
-    private int positionTypesId;
+    private int positionTypeId;
 
     /*
         TODO #3 - Included other fields needed to create a job, - complete - getters and setters below
@@ -117,20 +117,20 @@ public class JobForm {
         this.locationId = locationId;
     }
 
-    public int getCoreCompetenciesId() {
-        return coreCompetenciesId;
+    public int getCoreCompetencyId() {
+        return coreCompetencyId;
     }
 
-    public void setCoreCompetenciesId(int coreCompetenciesId) {
-        this.coreCompetenciesId = coreCompetenciesId;
+    public void setCoreCompetencyId(int coreCompetenciesId) {
+        this.coreCompetencyId = coreCompetenciesId;
     }
 
-    public int getPositionTypesId() {
-        return positionTypesId;
+    public int getPositionTypeId() {
+        return positionTypeId;
     }
 
-    public void setPositionTypesId(int positionTypesId) {
-        this.positionTypesId = positionTypesId;
+    public void setPositionTypeId(int positionTypesId) {
+        this.positionTypeId = positionTypesId;
     }
 }
 
