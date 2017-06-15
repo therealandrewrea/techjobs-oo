@@ -29,7 +29,7 @@ public class JobController {
         Job jobPull = jobData.findById(id);
         model.addAttribute("jobPull", jobPull);
 
-        // TODO #1 STILL NEED - get the Job with the given ID and pass it into the view
+        // TODO #1 template needs refining/loop - get the Job with the given ID and pass it into the view
         // job-detail.html displaying properly, still unclear as to where this is accessed - redirect from new job creation or direct URL entry
 
         return "job-detail";
@@ -56,8 +56,13 @@ public class JobController {
 //        model.addAttribute("coreCompetency", coreCompetency.value);
 //        model.addAttribute("positionType", positionType.value);
 
-        Job newJob = new Job();
-        jobData.add(newJob);
+        Job jobPull = new Job();
+        jobData.add(jobPull);
+        int newId = jobPull.getId();
+
+        model.addAttribute("newId", newId);
+        model.addAttribute("jobPull", jobPull);
+
         // TODO #6 - STILL NEED - Validate the JobForm model, and if valid, create a
         // new Job and add it to the jobData data store. Then
         // redirect to the job detail view for the new Job.
