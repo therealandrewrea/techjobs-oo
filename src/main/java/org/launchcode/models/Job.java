@@ -32,6 +32,9 @@ public class Job {
 
     }
 
+    public Job(String name, int employerId, int locationId, int positionTypeId, int coreCompetencyId) {  // custom constructor for testing //
+    }
+
     public String getName() {
         return name;
     }

@@ -6,6 +6,7 @@ import org.launchcode.models.data.JobData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,7 +43,7 @@ public class JobController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String add(Model model, @Valid JobForm jobForm, Errors errors) {
+    public String add(Model model, @ModelAttribute @Valid JobForm jobForm, Errors errors) {
 
         //error message not appearing on reload of new-job template//
         if (errors.hasErrors()) {
@@ -50,24 +51,22 @@ public class JobController {
             model.addAttribute("errors", errors);
             return "new-job";
         }
-        // TODO #7- ask about todo 6, how to use jobform to create a new job and add to jobData, then redirect to job-detail with the ID //
 
-        Job newJob = new Job();
+        // Complete! //
 
+        String n = jobForm.getName();
+        Employer e = jobData.getEmployers().findById(jobForm.getEmployerId());
+        Location l = jobData.getLocations().findById(jobForm.getLocationId());
+        PositionType p = jobData.getPositionTypes().findById(jobForm.getPositionTypeId());
+        CoreCompetency c = jobData.getCoreCompetencies().findById(jobForm.getCoreCompetencyId());
+
+        Job newJob = new Job(n,e,l,p,c);
 
         jobData.add(newJob);
         int newId = newJob.getId();
 
         model.addAttribute("newId", newId);
         model.addAttribute("jobPull", newJob); //update name to newJob if needed//
-
-        // TODO #6 - STILL NEED - Validate the JobForm model, and if valid, create a
-        // new Job and add it to the jobData data store. Then
-        // redirect to the job detail view for the new Job.
-        // annotations - in prep work - annotate individual fields in models
-        // errors object directly after thing being validated in controller - and validate annotation
-        // re-render form and provide error message as needed
-        // build in a place for error messages to be displayed - prep work - span tags
 
         return "job-detail";
 
