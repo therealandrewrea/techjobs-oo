@@ -1,6 +1,6 @@
 package org.launchcode.controllers;
 
-import org.launchcode.models.Job;
+import org.launchcode.models.*;
 import org.launchcode.models.forms.JobForm;
 import org.launchcode.models.data.JobData;
 import org.springframework.stereotype.Controller;
@@ -47,21 +47,19 @@ public class JobController {
         //error message not appearing on reload of new-job template//
         if (errors.hasErrors()) {
             model.addAttribute(new JobForm());
+            model.addAttribute("errors", errors);
             return "new-job";
         }
         // TODO #7- ask about todo 6, how to use jobform to create a new job and add to jobData, then redirect to job-detail with the ID //
-//        model.addAttribute("name", name);
-//        model.addAttribute("employer", employer.value);
-//        model.addAttribute("location", location.value);
-//        model.addAttribute("coreCompetency", coreCompetency.value);
-//        model.addAttribute("positionType", positionType.value);
 
-        Job jobPull = new Job();
-        jobData.add(jobPull);
-        int newId = jobPull.getId();
+        Job newJob = new Job();
+
+
+        jobData.add(newJob);
+        int newId = newJob.getId();
 
         model.addAttribute("newId", newId);
-        model.addAttribute("jobPull", jobPull);
+        model.addAttribute("jobPull", newJob); //update name to newJob if needed//
 
         // TODO #6 - STILL NEED - Validate the JobForm model, and if valid, create a
         // new Job and add it to the jobData data store. Then
