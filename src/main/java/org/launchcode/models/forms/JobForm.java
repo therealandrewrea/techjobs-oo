@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class JobForm {
 
     // linked to new-job.html //
-    @Size(min=1, message = "Name may not be blank.")
+    @Size(min=1, message = "Name field must not be empty.")
     private String name;
 
     @NotNull

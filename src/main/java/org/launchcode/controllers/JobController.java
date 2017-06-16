@@ -47,8 +47,7 @@ public class JobController {
 
         //error message not appearing on reload of new-job template//
         if (errors.hasErrors()) {
-            model.addAttribute(new JobForm());
-            model.addAttribute("errors", errors);
+            model.addAttribute(errors);
             return "new-job";
         }
 
